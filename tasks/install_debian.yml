@@ -1,0 +1,12 @@
+---
+# tasks file for crictl | Debian/Ubuntu Family
+
+- name: Debian/Ubuntu Family | Downloading and extracting {{ crictl_app }} {{ crictl_version }}
+  unarchive:
+    src: "{{ crictl_dl_url }}"
+    dest: "{{ crictl_bin_path }}"
+    owner: "{{ crictl_file_owner }}"
+    group: "{{ crictl_file_group }}"
+    extra_opts:
+      - crictl
+    remote_src: yes
