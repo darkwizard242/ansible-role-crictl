@@ -1,0 +1,11 @@
+---
+# defaults file for crictl
+
+crictl_app: crictl
+crictl_version: 1.22.0
+crictl_os: linux
+crictl_arch: amd64
+crictl_dl_url: https://github.com/kubernetes-sigs/cri-tools/releases/download/v{{ crictl_version }}/{{ crictl_app }}-v{{ crictl_version }}-{{ crictl_os }}-{{ crictl_arch }}.tar.gz
+crictl_bin_path: /usr/local/bin
+crictl_file_owner: root
+crictl_file_group: root
