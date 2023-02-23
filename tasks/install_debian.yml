@@ -2,7 +2,7 @@
 # tasks file for crictl | Debian/Ubuntu Family
 
 - name: Debian/Ubuntu Family | Downloading and extracting {{ crictl_app }} {{ crictl_version }}
-  unarchive:
+  ansible.builtin.unarchive:
     src: "{{ crictl_dl_url }}"
     dest: "{{ crictl_bin_path }}"
     owner: "{{ crictl_file_owner }}"
