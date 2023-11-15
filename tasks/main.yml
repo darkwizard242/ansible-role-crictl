@@ -8,3 +8,11 @@
 - name: Import install_el.yml if OS family is EL
   ansible.builtin.import_tasks: install_el.yml
   when: ansible_os_family == "RedHat"
+
+- name: Add /etc/crictl.yaml file
+  copy:
+    dest: /etc/crictl.yaml
+    content: |
+      runtime-endpoint: "unix:///run/containerd/containerd.sock"
+      timeout: 0
+      debug: false
