@@ -2,7 +2,7 @@
 # defaults file for crictl
 
 crictl_app: crictl
-crictl_version: 1.22.0
+crictl_version: 1.29.0
 crictl_os: linux
 crictl_arch: amd64
 crictl_dl_url: https://github.com/kubernetes-sigs/cri-tools/releases/download/v{{ crictl_version }}/{{ crictl_app }}-v{{ crictl_version }}-{{ crictl_os }}-{{ crictl_arch }}.tar.gz
