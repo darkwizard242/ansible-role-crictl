@@ -16,7 +16,7 @@ Available variables are listed below (located in `defaults/main.yml`):
 
 ```yaml
 crictl_app: crictl
-crictl_version: 1.22.0
+crictl_version: 1.29.0
 crictl_os: linux
 crictl_arch: amd64
 crictl_dl_url: https://github.com/kubernetes-sigs/cri-tools/releases/download/v{{ crictl_version }}/{{ crictl_app }}-v{{ crictl_version }}-{{ crictl_os }}-{{ crictl_arch }}.tar.gz
@@ -30,7 +30,7 @@ crictl_file_group: root
 Variable          | Description
 ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------
 crictl_app        | Defines the app to install i.e. **crictl**
-crictl_version    | Defined to dynamically fetch the desired version to install. Defaults to: **1.22.0**
+crictl_version    | Defined to dynamically fetch the desired version to install. Defaults to: **1.29.0**
 crictl_os         | Defines os type.
 crictl_arch       | Defines os architecture. Used for obtaining the correct type of binaries based on OS System Architecture.
 crictl_dl_url     | Defines URL to download the crictl binary from.
