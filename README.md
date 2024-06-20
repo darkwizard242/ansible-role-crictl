@@ -17,9 +17,17 @@ Available variables are listed below (located in `defaults/main.yml`):
 ```yaml
 crictl_app: crictl
 crictl_version: 1.30.0
-crictl_os: linux
-crictl_arch: amd64
-crictl_dl_url: https://github.com/kubernetes-sigs/cri-tools/releases/download/v{{ crictl_version }}/{{ crictl_app }}-v{{ crictl_version }}-{{ crictl_os }}-{{ crictl_arch }}.tar.gz
+crictl_os: "{{ ansible_system | lower }}"
+crictl_architecture_map:
+  amd64: amd64
+  arm: arm64
+  x86_64: amd64
+  armv6l: armv6
+  armv7l: armv7
+  aarch64: arm64
+  32-bit: "386"
+  64-bit: amd64
+crictl_dl_url: https://github.com/kubernetes-sigs/cri-tools/releases/download/v{{ crictl_version }}/{{ crictl_app }}-v{{ crictl_version }}-{{ crictl_os }}-{{ crictl_architecture_map[ansible_architecture] }}.tar.gz
 crictl_bin_path: /usr/local/bin
 crictl_file_owner: root
 crictl_file_group: root
@@ -27,16 +35,16 @@ crictl_file_group: root
 
 ### Variables table:
 
-Variable          | Description
------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------
-crictl_app        | Defines the app to install i.e. **crictl**
-crictl_version    | Defined to dynamically fetch the desired version to install. Defaults to: **1.30.0**
-crictl_os         | Defines os type.
-crictl_arch       | Defines os architecture. Used for obtaining the correct type of binaries based on OS System Architecture.
-crictl_dl_url     | Defines URL to download the crictl binary from.
-crictl_bin_path   | Defined to dynamically set the appropriate path to store crictl binary into. Defaults to (as generally available on any user's PATH): **/usr/local/bin**
-crictl_file_owner | Owner for the binary file of crictl.
-crictl_file_group | Group for the binary file of crictl.
+Variable                | Description
+----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------
+crictl_app              | Defines the app to install i.e. **crictl**
+crictl_version          | Defined to dynamically fetch the desired version to install. Defaults to: **1.30.0**
+crictl_os               | Defines os type.
+crictl_architecture_map | Defines os architecture. Used for obtaining the correct type of binaries based on OS System Architecture.
+crictl_dl_url           | Defines URL to download the crictl binary from.
+crictl_bin_path         | Defined to dynamically set the appropriate path to store crictl binary into. Defaults to (as generally available on any user's PATH): **/usr/local/bin**
+crictl_file_owner       | Owner for the binary file of crictl.
+crictl_file_group       | Group for the binary file of crictl.
 
 ## Dependencies
 
