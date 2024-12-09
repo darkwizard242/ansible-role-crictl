@@ -16,7 +16,7 @@ Available variables are listed below (located in `defaults/main.yml`):
 
 ```yaml
 crictl_app: crictl
-crictl_version: 1.31.1
+crictl_version: 1.32.0
 crictl_os: "{{ ansible_system | lower }}"
 crictl_architecture_map:
   amd64: amd64
@@ -38,7 +38,7 @@ crictl_file_group: root
 Variable                | Description
 ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------
 crictl_app              | Defines the app to install i.e. **crictl**
-crictl_version          | Defined to dynamically fetch the desired version to install. Defaults to: **1.31.1**
+crictl_version          | Defined to dynamically fetch the desired version to install. Defaults to: **1.32.0**
 crictl_os               | Defines os type.
 crictl_architecture_map | Defines os architecture. Used for obtaining the correct type of binaries based on OS System Architecture.
 crictl_dl_url           | Defines URL to download the crictl binary from.
