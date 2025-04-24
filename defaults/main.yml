@@ -2,7 +2,7 @@
 # defaults file for crictl
 
 crictl_app: crictl
-crictl_version: 1.32.0
+crictl_version: 1.33.0
 crictl_os: "{{ ansible_system | lower }}"
 crictl_architecture_map:
   amd64: amd64
